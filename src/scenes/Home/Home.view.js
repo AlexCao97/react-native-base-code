@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import styles from 'scenes/Home/Home.styles';
 import {Button, HelperText, TextInput, useTheme} from 'react-native-paper';
+import {capitalize} from 'lodash';
 
 const HomeView = () => {
   const {colors} = useTheme();
@@ -43,7 +44,7 @@ const HomeView = () => {
             left={<TextInput.Icon name="account" />}
           />
           <HelperText type="error" visible={touched.email && errors.email}>
-            {errors.email}
+            {capitalize(errors.email)}
           </HelperText>
           <TextInput
             label="Password"
@@ -65,7 +66,7 @@ const HomeView = () => {
           <HelperText
             type="error"
             visible={touched.password && errors.password}>
-            {errors.password}
+            {capitalize(errors.password)}
           </HelperText>
           <View
             style={{
